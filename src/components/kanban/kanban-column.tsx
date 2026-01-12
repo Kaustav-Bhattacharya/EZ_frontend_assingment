@@ -1,6 +1,7 @@
 import { Plus } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
+import { useDroppable } from '@dnd-kit/core'
 import { KanbanCard } from './kanban-card'
 import { type KanbanColumnProps } from '@/types/kanban'
 
@@ -25,6 +26,10 @@ const columnStyles = {
 export function KanbanColumn({ column, cards, onAddCard, onEditCard, onDeleteCard }: KanbanColumnProps) {
   const columnCards = cards.filter((card) => card.columnId === column.id)
   const styles = columnStyles[column.id]
+  
+  const { setNodeRef } = useDroppable({
+    id: column.id,
+  })
 
   return (
     <div
@@ -38,10 +43,19 @@ export function KanbanColumn({ column, cards, onAddCard, onEditCard, onDeleteCar
       </div>
 
       <SortableContext items={columnCards.map((c) => c.id)} strategy={verticalListSortingStrategy}>
-        <div className="flex-1 overflow-y-auto space-y-2 min-h-[100px]">
-          {columnCards.map((card) => (
-            <KanbanCard key={card.id} card={card} onEdit={onEditCard} onDelete={onDeleteCard} />
-          ))}
+        <div
+          ref={setNodeRef}
+          className="flex-1 overflow-y-auto space-y-2 min-h-[200px]"
+        >
+          {columnCards.length === 0 ? (
+            <div className="flex items-center justify-center h-full text-gray-500 text-sm">
+              Drop cards here
+            </div>
+          ) : (
+            columnCards.map((card) => (
+              <KanbanCard key={card.id} card={card} onEdit={onEditCard} onDelete={onDeleteCard} />
+            ))
+          )}
         </div>
       </SortableContext>
 
