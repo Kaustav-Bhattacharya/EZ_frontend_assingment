@@ -2,7 +2,7 @@
 
 A React + TypeScript application featuring a fully functional Tree View component with lazy loading and a Kanban Board with drag-and-drop functionality.
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Node.js 18+ 
@@ -29,7 +29,7 @@ npm run lint
 
 The app will be available at `http://localhost:5173`
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -54,7 +54,7 @@ src/
     └── utils.ts              # cn() utility
 ```
 
-## 🌲 Tree View Component
+## Tree View Component
 
 ### Features
 
@@ -113,7 +113,7 @@ export function loadChildrenMock(parentName: string): Promise<TreeNode[]> {
 }
 ```
 
-## 📋 Kanban Board Component
+## Kanban Board Component
 
 ### Features
 
@@ -149,7 +149,7 @@ function App() {
 - **Initial cards**: Edit `src/data/kanban-data.ts` → `initialKanbanCards`
 - **Column colors**: Edit `src/components/kanban/kanban-column.tsx` → `columnStyles`
 
-## 🔧 Technical Stack
+## Technical Stack
 
 - **React 19** - UI framework
 - **TypeScript 5** - Type safety
@@ -159,7 +159,7 @@ function App() {
 - **@dnd-kit** - Drag and drop
 - **Lucide React** - Icons
 
-## 🎨 Styling
+## Styling
 
 This project uses Tailwind CSS with a dark theme. The color palette is defined in `src/index.css` using CSS variables.
 
@@ -173,7 +173,7 @@ To modify the theme, edit the CSS variables in `src/index.css`:
 }
 ```
 
-## 🧪 Adding New Components
+## Adding New Components
 
 Use shadcn/ui CLI to add components:
 
@@ -194,7 +194,7 @@ npx shadcn@latest add select
 - **Type imports**: Use `type` keyword (e.g., `import { type TreeNode }`)
 - **Minimal comments**: Code should be self-documenting
 
-## 🔄 Replacing Mock Data with API
+## Replacing Mock Data with API
 
 ### Tree View
 
@@ -226,7 +226,7 @@ useEffect(() => {
 }, [])
 ```
 
-## 🐛 Common Issues
+## Common Issues
 
 **Tree keeps expanding infinitely:**
 - Make sure leaf nodes have `children: []`, not `children: undefined`
@@ -240,6 +240,6 @@ useEffect(() => {
 - Run `npm install` to ensure Tailwind is configured
 - Check `tailwind.config.cjs` includes all content paths
 
-## 📄 License
+## License
 
 This project is for assignment purposes.
