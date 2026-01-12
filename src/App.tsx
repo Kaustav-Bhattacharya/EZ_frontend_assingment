@@ -43,10 +43,6 @@ function App() {
             <KanbanBoard />
           )}
         </div>
-
-        <footer className="mt-8 text-center text-gray-500 text-sm">
-          <p>Built with React + TypeScript + Tailwind CSS + shadcn/ui</p>
-        </footer>
       </div>
     </div>
   )
